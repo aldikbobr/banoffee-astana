@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Кондитерская Banoffee в Астане — торты на заказ, синнабоны, десерты и кофе</title>
-<meta name="description" content="Banoffee — кондитерская в Астане: торты на заказ и фототорты, бенто-торты, синнабоны, моти, конфеты ручной работы, сеты и кофе с собой. 2 филиала, доставка. 4.8★ в 2ГИС.">
+<meta name="description" content="Banoffee — кондитерская в Астане со своим производством: торты на заказ и фототорты, бенто-торты, синнабоны, моти, меренговые рулеты, конфеты ручной работы, сеты и кофе с собой. 2 филиала, доставка. 4.8★ в 2ГИС.">
 <!-- Концепт: пока кондитерская не согласилась, сайт закрыт от поисковиков. Запуск: "noindex, nofollow" → "index, follow" + canonical/og:url с доменом, sitemap.xml. -->
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#8A5A44">
@@ -12,7 +12,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Banoffee">
 <meta property="og:title" content="Banoffee — торты на заказ и десерты в Астане">
-<meta property="og:description" content="Торты на заказ, фототорты, бенто, синнабоны и кофе. Два филиала, доставка. 4.8★ в 2ГИС.">
+<meta property="og:description" content="Торты на заказ, фототорты, бенто, синнабоны и кофе до полуночи. Два филиала, доставка. 4.8★ в 2ГИС.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1702744382319-20efefc9dc19?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,23 +21,35 @@
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yeseva+One&amp;family=Nunito:wght@500;600;700;800&amp;display=swap">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yeseva+One&amp;family=Nunito:wght@400;500;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.add('js');
+  // Animations only when the visitor allows motion; if app.js never starts, show everything after 4 s.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    d.classList.add('motion');
+    setTimeout(function () { if (!window.__bnReady) d.classList.remove('motion'); }, 4000);
+  }
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Bakery",
   "name": "Banoffee",
-  "description": "Кондитерская в Астане: торты на заказ, фототорты, бенто-торты, синнабоны, десерт моти, меренговые рулеты, конфеты ручной работы, сеты, кейтеринг и кофе с собой.",
+  "description": "Кондитерская в Астане со своим производством: торты на заказ, фототорты, бенто-торты, синнабоны, десерт моти, меренговые рулеты, конфеты ручной работы, сеты, кейтеринг и кофе с собой.",
   "image": "https://images.unsplash.com/photo-1702744382319-20efefc9dc19?auto=format&fit=crop&w=1200&h=630&q=75",
   "telephone": "+77029734891",
   "paymentAccepted": "Банковская карта, наличные, перевод с карты, QR-код",
-  "address": { "@type": "PostalAddress", "streetAddress": "улица Санжара Асфендиярова, 8", "addressLocality": "Астана", "addressCountry": "KZ" },
+  "address": { "@type": "PostalAddress", "streetAddress": "улица Санжара Асфендиярова, 8", "postalCode": "Z19Y3T4", "addressLocality": "Астана", "addressCountry": "KZ" },
   "geo": { "@type": "GeoCoordinates", "latitude": 51.134089, "longitude": 71.381541 },
   "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "09:00", "closes": "23:59" },
   "department": [
-    { "@type": "Bakery", "name": "Banoffee — Улы Дала", "telephone": "+77029734891", "address": { "@type": "PostalAddress", "streetAddress": "проспект Улы Дала, 33", "addressLocality": "Астана", "addressCountry": "KZ" } }
+    { "@type": "Bakery", "name": "Banoffee — Улы Дала", "telephone": "+77029734891", "address": { "@type": "PostalAddress", "streetAddress": "проспект Улы Дала, 33", "postalCode": "Z05X2E2", "addressLocality": "Астана", "addressCountry": "KZ" },
+      "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "10:00", "closes": "21:00" } }
   ],
   "sameAs": [
     "https://www.instagram.com/banoffee_ast/",
@@ -50,196 +62,367 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Как заказать торт?", "acceptedAnswer": { "@type": "Answer", "text": "Напишите в WhatsApp: дату, количество гостей и пожелания по дизайну — можно прислать фото-референс. Делаем торты на заказ, фототорты и бенто-торты." } },
-    { "@type": "Question", "name": "Есть ли доставка?", "acceptedAnswer": { "@type": "Answer", "text": "Да, доставка есть — условия уточняйте в WhatsApp." } },
-    { "@type": "Question", "name": "Сколько стоят синнабоны?", "acceptedAnswer": { "@type": "Answer", "text": "Сейчас синнабон — 700 ₸." } },
+    { "@type": "Question", "name": "Как заказать торт?", "acceptedAnswer": { "@type": "Answer", "text": "Соберите заявку на сайте или напишите в WhatsApp: дату, количество гостей и пожелания по дизайну — можно прислать фото-референс. Делаем торты на заказ, фототорты и бенто-торты." } },
+    { "@type": "Question", "name": "Можно сделать торт с фотографией?", "acceptedAnswer": { "@type": "Answer", "text": "Да, делаем фототорты. Пришлите изображение в WhatsApp вместе с датой и пожеланиями." } },
+    { "@type": "Question", "name": "Есть ли доставка?", "acceptedAnswer": { "@type": "Answer", "text": "Да, доставка по Астане есть — условия и время уточняйте в WhatsApp." } },
+    { "@type": "Question", "name": "Сколько стоит синнабон?", "acceptedAnswer": { "@type": "Answer", "text": "Сейчас синнабон — 700 ₸." } },
     { "@type": "Question", "name": "Как оплатить?", "acceptedAnswer": { "@type": "Answer", "text": "Картой, наличными, переводом с карты или по QR-коду." } },
-    { "@type": "Question", "name": "Где вы находитесь?", "acceptedAnswer": { "@type": "Answer", "text": "Два филиала: улица Санжара Асфендиярова, 8 (район Нура) — ежедневно 09:00–24:00, и проспект Улы Дала, 33 — ежедневно 10:00–21:00." } }
+    { "@type": "Question", "name": "Где вы находитесь и есть ли парковка?", "acceptedAnswer": { "@type": "Answer", "text": "Два филиала: улица Санжара Асфендиярова, 8 (район Нура) — ежедневно 09:00–24:00, и проспект Улы Дала, 33 — ежедневно 10:00–21:00. У Асфендиярова, 8 — бесплатная парковка на 100 мест." } }
   ]
 }
 </script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-mark" viewBox="4 4 112 112"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path pathLength="1" d="M82 49.5 107 35.5" stroke-width="7.4"/><path pathLength="1" d="M82 49.5 107 35.5" style="stroke:var(--mark-fill,#FBF6EF)" stroke-width="3"/><path pathLength="1" d="M79.5 46.5 83 52.8"/>
+    <path pathLength="1" d="M80 50Q68 42 54 45"/><path pathLength="1" d="M80 50Q67 49 56 55"/><path pathLength="1" d="M80 50Q68 56 58.5 64.5"/><path pathLength="1" d="M80 50Q70 63 61 74"/>
+    <path pathLength="1" style="fill:var(--mark-fill,#FBF6EF)" d="M11 77C15 69 22 61 30 52 33.5 47.5 38.5 44.5 44 44.2 48 43.8 52 44.2 55 45.2 58.5 49.5 55.5 54.5 58.5 58 61.5 62 57.5 66 60.5 70 63.5 73.5 60.5 76.5 62 78.5 56 82 48 83.2 40 82.4 30 82 20 80.2 11 77Z"/>
+    <path pathLength="1" d="M17 72C26 67.5 35 70.5 43.5 66.5 49.5 63.5 55 66.5 60 68.5"/><path pathLength="1" d="M23 64C31 59.5 38.5 62.5 46 58.5 51 55.5 54.5 57.5 57.5 58.5"/><path pathLength="1" d="M30 55.5C36 51.5 42 53.5 48 50.5 51.5 48.5 54 49.5 56 50.5"/><path pathLength="1" d="M11 77C8.2 77.8 7 75.2 9.2 73.8"/>
+  </g></symbol>
   <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-  <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
-  <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
-  <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6h4"/></symbol>
   <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></symbol>
   <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
-  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol>
-  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
-  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></symbol>
-  <symbol id="i-cake" viewBox="0 0 24 24"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v3"/><path d="M12 8v3"/><path d="M17 8v3"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/></symbol>
-  <symbol id="i-coffee" viewBox="0 0 24 24"><path d="M10 2v2"/><path d="M14 2v2"/><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"/><path d="M6 2v2"/></symbol>
-  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
-  <symbol id="i-car" viewBox="0 0 24 24"><path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8"/><path d="M7 14h.01"/><path d="M17 14h.01"/><rect width="18" height="8" x="3" y="10" rx="2"/><path d="M5 18v2"/><path d="M19 18v2"/></symbol>
+  <symbol id="i-parking" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></symbol>
+  <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></symbol>
   <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/></symbol>
 </svg>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader-panel loader-panel--back"></div>
+  <div class="loader-panel loader-panel--front">
+    <svg class="loader-mark"><use href="#logo-mark"/></svg>
+    <div class="loader-word"><span>B</span><span>a</span><span>n</span><span>o</span><span>f</span><span>f</span><span>e</span><span>e</span></div>
+    <div class="loader-sub">banana <i>+</i> toffee</div>
+    <div class="loader-bar"><span></span></div>
+  </div>
+</div>
+
+<div class="cursor" aria-hidden="true"><div class="cursor-ring"><span class="cursor-label"></span></div><div class="cursor-dot"></div></div>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 
 <div id="top" class="site-shell">
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="brand" aria-label="Banoffee — наверх"><span class="brand-mark logo" aria-hidden="true"><img src="logo.jpg" alt="" width="44" height="44"></span><span class="brand-type"><strong class="bn">Banoffee</strong><small class="bn">DESSERTS &amp; COFFEE</small></span></a>
-      <nav class="desktop-nav" aria-label="Основная навигация"><a href="#services">Десерты</a><a href="#volume">Кофе</a><a href="#prices">Филиалы</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav>
-      <div class="header-actions"><a class="btn btn-plum header-cta" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20торт%20в%20Banoffee" target="_blank" rel="noopener">Заказать торт <svg class="i"><use href="#i-arrow-right"/></svg></a></div>
-      <button class="mobile-menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><svg class="i i-open"><use href="#i-menu"/></svg><svg class="i i-close"><use href="#i-x"/></svg></button>
+      <a href="#top" class="brand" aria-label="Banoffee — наверх"><span class="brand-mark" aria-hidden="true"><svg class="mark"><use href="#logo-mark"/></svg></span><span class="brand-type"><strong>Banoffee</strong><small>DESSERTS &amp; COFFEE</small></span></a>
+      <nav class="desktop-nav" aria-label="Основная навигация"><a href="#menu">Меню</a><a href="#story">История</a><a href="#order">Заказ торта</a><a href="#coffee">Кофе</a><a href="#branches">Филиалы</a><a href="#reviews">Отзывы</a></nav>
+      <a class="btn btn-plum header-cta magnetic" href="#order">Заказать торт <svg class="i"><use href="#i-arrow-right"/></svg></a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
     </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden><a href="#services">Десерты<svg class="i"><use href="#i-arrow-right"/></svg></a><a href="#volume">Кофе<svg class="i"><use href="#i-arrow-right"/></svg></a><a href="#prices">Филиалы<svg class="i"><use href="#i-arrow-right"/></svg></a><a href="#reviews">Отзывы<svg class="i"><use href="#i-arrow-right"/></svg></a><a href="#contacts">Контакты<svg class="i"><use href="#i-arrow-right"/></svg></a></nav>
   </header>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Мобильная навигация" hidden>
+    <div class="mobile-nav-inner">
+      <a href="#menu"><small>01</small>Меню</a><a href="#story"><small>02</small>История</a><a href="#order"><small>03</small>Заказ торта</a><a href="#coffee"><small>04</small>Кофе</a><a href="#branches"><small>05</small>Филиалы</a><a href="#reviews"><small>06</small>Отзывы</a><a href="#contacts"><small>07</small>Контакты</a>
+      <div class="mobile-nav-foot"><a href="https://wa.me/77029734891" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener">Instagram</a><a href="tel:+77029734891">Позвонить</a></div>
+    </div>
+  </nav>
 
   <main>
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="hero-kicker"><svg class="i"><use href="#i-sparkles"/></svg> 4.8 ★ в 2ГИС · 702 оценки</span>
-          <h1 id="hero-title"><span class="line">Торты на заказ</span> <span class="line">и десерты <em>каждый день</em></span> <span class="line small">кондитерская · кофе · кейтеринг</span></h1>
-          <p>Banoffee — кондитерская в Астане: торты на заказ и фототорты, бенто-торты, синнабоны, моти, меренговые рулеты, конфеты ручной работы и кофе с собой. Два филиала и доставка.</p>
-          <div class="hero-buttons"><a class="btn btn-plum shine" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20торт%20в%20Banoffee" target="_blank" rel="noopener">Заказать торт <svg class="i"><use href="#i-arrow-right"/></svg></a><a class="btn btn-ghost" href="#services">Десерты</a></div>
-          <div class="hero-meta"><span><svg class="i"><use href="#i-clock"/></svg> Ежедневно 09:00–24:00</span><span><svg class="i"><use href="#i-map-pin"/></svg> ул. Асфендиярова, 8</span></div>
+          <span class="hero-chip h-up"><svg class="i fill"><use href="#i-star"/></svg> 4.8 в 2ГИС · 722 оценки</span>
+          <h1 id="hero-title" class="hero-title" data-split><span class="ln">Торты на заказ</span> <span class="ln">и десерты</span> <span class="ln"><em>каждый день</em></span></h1>
+          <p class="hero-lead h-up">Кондитерская в Астане со своим производством: торты и фототорты, бенто, синнабоны, моти, меренговые рулеты, конфеты ручной работы — и кофе до полуночи.</p>
+          <div class="hero-buttons h-up"><a class="btn btn-plum btn-lg magnetic shine" href="#order">Собрать заказ <svg class="i"><use href="#i-arrow-right"/></svg></a><a class="btn btn-ghost btn-lg magnetic" href="#menu">Смотреть витрину</a></div>
+          <div class="hero-meta h-up"><span class="status-pill" data-branch-status data-open="09:00" data-close="24:00"><i></i><b>Ежедневно 09:00–24:00</b></span><span><svg class="i"><use href="#i-map-pin"/></svg> Асфендиярова, 8 · Улы Дала, 33</span></div>
         </div>
-        <div class="hero-visual">
-          <div class="arch arch-main"><img src="https://images.unsplash.com/photo-1702744382319-20efefc9dc19?auto=format&amp;fit=crop&amp;w=900&amp;h=1150&amp;q=72" alt="Шоколадный торт с безе" width="900" height="1150" fetchpriority="high"></div>
-          <div class="arch arch-small"><img src="https://images.unsplash.com/photo-1593872571314-4a735d4b27b0?auto=format&amp;fit=crop&amp;w=500&amp;h=640&amp;q=70" alt="Синнабон с корицей" width="500" height="640"></div>
-          <div class="hero-badge"><b>700 ₸</b><span>синнабон — попробуйте</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="numbers" aria-label="Banoffee в цифрах">
-      <div class="container numbers-grid reveal">
-        <div><strong><span class="count">4.8</span><span class="star pop">★</span></strong><span>оценка в 2ГИС</span></div>
-        <div><strong><span class="count">702</span></strong><span>оценки гостей</span></div>
-        <div><strong><span class="count">2</span></strong><span>филиала в Астане</span></div>
-        <div><strong><span class="count">12K</span></strong><span>подписчиков в Instagram</span></div>
-      </div>
-    </section>
-
-    <div class="ticker" aria-hidden="true"><div class="ticker-track">
-      <span>Торты на заказ</span><span>Фототорты</span><span>Бенто-торты</span><span>Синнабоны</span><span>Моти</span><span>Меренговые рулеты</span><span>Конфеты ручной работы</span><span>Кофе с собой</span>
-      <span>Торты на заказ</span><span>Фототорты</span><span>Бенто-торты</span><span>Синнабоны</span><span>Моти</span><span>Меренговые рулеты</span><span>Конфеты ручной работы</span><span>Кофе с собой</span>
-    </div></div>
-
-    <section id="services" class="section services-section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Десерты</span><h2>Сладкое <em>к любому</em> поводу</h2><p>От синнабона к кофе до торта на день рождения и сетов для праздника.</p></div>
-        <div class="services-grid stagger">
-          <article class="service reveal"><div class="service-photo"><img src="https://images.unsplash.com/photo-1659271940584-25589f320198?auto=format&amp;fit=crop&amp;w=700&amp;h=520&amp;q=70" alt="Розовый торт с цветами" width="700" height="520" loading="lazy"></div><div class="service-body"><span class="service-icon"><svg class="i"><use href="#i-cake"/></svg></span><h3>Торты на заказ</h3><ul><li>По вашему дизайну</li><li>Фототорты</li></ul></div></article>
-          <article class="service reveal"><div class="service-photo"><img src="https://images.unsplash.com/photo-1659679120544-1a968f3003f6?auto=format&amp;fit=crop&amp;w=700&amp;h=520&amp;q=70" alt="Бенто-торт в коробочке со свечой" width="700" height="520" loading="lazy"></div><div class="service-body"><span class="service-icon"><svg class="i"><use href="#i-heart"/></svg></span><h3>Бенто-торты</h3><ul><li>Мини-торт на подарок</li><li>Под ваш повод</li></ul></div></article>
-          <article class="service reveal"><div class="service-photo"><img src="https://images.unsplash.com/photo-1645995575875-ea6511c9d127?auto=format&amp;fit=crop&amp;w=700&amp;h=520&amp;q=70" alt="Синнабоны с глазурью" width="700" height="520" loading="lazy"></div><div class="service-body"><span class="service-icon"><svg class="i"><use href="#i-sparkles"/></svg></span><h3>Синнабоны и выпечка</h3><ul><li>Синнабон — 700 ₸</li><li>Булочки и выпечка к кофе</li></ul></div></article>
-          <article class="service reveal"><div class="service-photo"><img src="https://images.unsplash.com/photo-1765134671689-b1f1e4fa13d9?auto=format&amp;fit=crop&amp;w=700&amp;h=520&amp;q=70" alt="Поднос с мини-десертами" width="700" height="520" loading="lazy"></div><div class="service-body"><span class="service-icon"><svg class="i"><use href="#i-cake"/></svg></span><h3>Сеты и кейтеринг</h3><ul><li>Моти, рулеты, конфеты</li><li>Сеты для праздника</li></ul></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="volume" class="section volume-section">
-      <div class="container volume-layout">
-        <div class="volume-photo reveal"><img class="parallax" src="https://images.unsplash.com/photo-1757949921983-ab4c911cc3fe?auto=format&amp;fit=crop&amp;w=800&amp;h=1000&amp;q=70" alt="Бариста готовит кофе в кафе" width="800" height="1000" loading="lazy"></div>
-        <div class="volume-copy reveal">
-          <span class="kicker">Кофе с собой</span>
-          <h2>Кофе и десерт — <em>до полуночи</em></h2>
-          <p>Филиал на Асфендиярова открыт каждый день с 9 утра до 12 ночи: кофе с собой, синнабоны, моти и десерты к столу. Рядом бесплатная парковка.</p>
-          <blockquote class="volume-quote">«Булочки всегда свежие, мягкие и невероятно вкусные, особенно дубайский шоколад вкус . Всё очень аппетитно, а обслуживание приятное и быстрое.»<cite>Erkewa, отзыв из 2ГИС</cite></blockquote>
-          <a class="btn btn-plum" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20десерты%20в%20Banoffee" target="_blank" rel="noopener">Заказать десерты <svg class="i"><use href="#i-arrow-right"/></svg></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="prices" class="section prices-section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Филиалы</span><h2>Два адреса в Астане</h2><p>Заказ торта и доставку уточняйте в WhatsApp.</p></div>
-        <div class="price-cols stagger">
-          <div class="price-col reveal"><h3><svg class="i"><use href="#i-map-pin"/></svg> Асфендиярова, 8</h3><dl><div><dt>Район Нура, ежедневно</dt><dd>09:00–24:00</dd></div><div><dt>Оценка в 2ГИС</dt><dd>4.8 ★ · 702</dd></div></dl><div class="price-cta"><p>Кофе с собой, торты, фототорты.</p><a class="btn btn-plum" href="https://2gis.kz/astana/firm/70000001076561967" target="_blank" rel="noopener">Маршрут в 2ГИС</a></div></div>
-          <div class="price-col reveal"><h3><svg class="i"><use href="#i-map-pin"/></svg> Улы Дала, 33</h3><dl><div><dt>Ежедневно</dt><dd>10:00–21:00</dd></div><div><dt>Оценка в 2ГИС</dt><dd>4.6 ★ · 149</dd></div></dl><div class="price-cta"><p>Торты на заказ, фототорты, доставка.</p><a class="btn btn-plum" href="https://2gis.kz/astana/firm/70000001096989484" target="_blank" rel="noopener">Маршрут в 2ГИС</a></div></div>
-          <div class="price-col reveal"><h3><svg class="i"><use href="#i-truck"/></svg> Доставка</h3><dl><div><dt>По Астане</dt><dd>есть</dd></div><div><dt>Оплата</dt><dd>карта, QR</dd></div></dl><div class="price-cta"><p>Условия и время — в WhatsApp.</p><a class="btn btn-plum" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20доставку%20из%20Banoffee" target="_blank" rel="noopener">Заказать доставку</a></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section why-section">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Почему Banoffee</span><h2>Вкусно, свежо, <em>рядом</em></h2></div>
-        <div class="why-grid stagger">
-          <div class="why reveal"><svg class="i"><use href="#i-cake"/></svg><h3>Своё производство</h3><p>Десерты делаем сами.</p></div>
-          <div class="why reveal"><svg class="i"><use href="#i-clock"/></svg><h3>До полуночи</h3><p>Асфендиярова — каждый день 9:00–24:00.</p></div>
-          <div class="why reveal"><svg class="i"><use href="#i-card"/></svg><h3>Любая оплата</h3><p>Карта, наличные, перевод, QR.</p></div>
-          <div class="why reveal"><svg class="i"><use href="#i-car"/></svg><h3>Парковка</h3><p>Бесплатная парковка на 100 мест.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="reviews" class="section reviews-section" aria-labelledby="reviews-title">
-      <div class="container">
-        <div class="section-head reveal"><span class="kicker">Отзывы</span><h2 id="reviews-title">Что говорят <em>гости</em></h2><p class="rating-line">4.8 ★ в 2ГИС · 702 оценки · 427 отзывов</p></div>
-        <div class="carousel reveal" role="region" aria-roledescription="карусель" aria-label="Отзывы из 2ГИС">
-          <button class="car-btn car-prev" type="button" aria-label="Предыдущий отзыв"><svg class="i"><use href="#i-chevron-left"/></svg></button>
-          <div class="car-track" tabindex="0">
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Очень понравились ! 🥰 Булочки всегда свежие, мягкие и невероятно вкусные, особенно дубайский шоколад вкус . Всё очень аппетитно, а обслуживание приятное и быстрое. Не первый раз покупаю ! ❤️</blockquote><figcaption><span class="avatar">E</span><span><b>Erkewa</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Спасибо за вкусные десерты и приятное обслуживание! Всё было свежим, красивым и очень вкусным. Обязательно вернусь снова и буду рекомендовать вас друзьям ❤️</blockquote><figcaption><span class="avatar">N</span><span><b>Nazdana</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Самые вкусные синнабоны, которые я когда либо пробовала😍 всем советую</blockquote><figcaption><span class="avatar">A</span><span><b>Amina</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Все понравлюсь. Торт вкусный и свежий. И как на фото 😍</blockquote><figcaption><span class="avatar">A</span><span><b>A.</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Как на фото мне понравилось спасибо вам ❤️</blockquote><figcaption><span class="avatar">З</span><span><b>Зейнеп</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
-            <figure class="rev-card"><svg class="i rev-quote fill"><use href="#i-quote"/></svg><blockquote>Вкусно, и цены нормальные. Советую</blockquote><figcaption><span class="avatar">Z</span><span><b>Z.</b><small>Отзыв из 2ГИС</small></span></figcaption></figure>
+        <div class="hero-visual" data-cursor="Banoffee">
+          <div class="arch arch-main" data-depth="14"><div class="arch-clip"><img src="https://images.unsplash.com/photo-1702744382319-20efefc9dc19?auto=format&amp;fit=crop&amp;w=900&amp;h=1150&amp;q=72" alt="Шоколадный торт с розами из крема и безе" width="900" height="1150" fetchpriority="high"></div></div>
+          <div class="arch arch-small" data-depth="-22"><div class="arch-clip"><img src="https://images.unsplash.com/photo-1593872571314-4a735d4b27b0?auto=format&amp;fit=crop&amp;w=500&amp;h=640&amp;q=70" alt="Синнабон с корицей" width="500" height="640"></div></div>
+          <div class="hero-badge pop" data-depth="-34"><b>700 ₸</b><span>синнабон — хит гостей</span></div>
+          <div class="hero-ring pop" data-depth="26" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><defs><path id="ring-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#ring-path">BANOFFEE · DESSERTS &amp; COFFEE · ASTANA · </textPath></text></svg>
+            <span class="hero-ring-core"><svg class="mark"><use href="#logo-mark"/></svg></span>
           </div>
-          <button class="car-btn car-next" type="button" aria-label="Следующий отзыв"><svg class="i"><use href="#i-chevron-right"/></svg></button>
-          <div class="car-dots" role="tablist" aria-label="Выбор отзыва"></div>
+          <div class="hero-rating pop" data-depth="-16"><span class="stars" aria-hidden="true"><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg></span><span>«И как на фото 😍»</span></div>
+        </div>
+      </div>
+      <a class="scroll-cue h-up" href="#numbers" aria-label="Листать вниз"><span>Листайте</span><i><svg class="i"><use href="#i-arrow-down"/></svg></i></a>
+    </section>
+
+    <!-- NUMBERS -->
+    <section id="numbers" class="numbers" aria-label="Banoffee в цифрах">
+      <div class="container numbers-grid">
+        <div><strong><span class="count">4.8</span><span class="star">★</span></strong><span>оценка в 2ГИС</span></div>
+        <div><strong><span class="count">722</span></strong><span>оценки гостей</span></div>
+        <div><strong><span class="count">436</span></strong><span>отзывов в 2ГИС</span></div>
+        <div><strong><span class="count">2</span></strong><span>филиала в Астане</span></div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Торты на заказ</span><span class="o">Фототорты</span><span>Бенто-торты</span><span class="o">Синнабоны</span><span>Моти</span><span class="o">Меренговые рулеты</span><span>Конфеты ручной работы</span><span class="o">Сеты и кейтеринг</span><span>Кофе с собой</span>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <section id="story" class="story" aria-labelledby="story-title">
+      <div class="story-pin">
+        <div class="container story-grid">
+          <div class="story-copy">
+            <span class="kicker">Откуда название</span>
+            <h2 id="story-title" class="story-word" aria-label="Banana плюс Toffee — Banoffee"><span class="k">Ban</span><span class="x">ana</span><span class="x sp">&nbsp;+&nbsp;</span><span class="x">T</span><span class="k">offee</span></h2>
+            <p class="story-eq" aria-hidden="true">= Banoffee</p>
+            <p class="story-text">Название — от banoffee pie, английского десерта из банана, тоффи и взбитых сливок. Простые вещи, которые вместе дают что-то особенное. Так работаем и мы: своё производство, свежие десерты каждый день и кофе к ним — до полуночи.</p>
+          </div>
+          <div class="story-media">
+            <div class="story-img"><img src="https://images.unsplash.com/photo-1615560725129-a1fa6edc3b93?auto=format&amp;fit=crop&amp;w=800&amp;h=1000&amp;q=72" alt="Десерт с карамелью, сливками и орехами в стакане" width="800" height="1000" loading="lazy"></div>
+            <div class="story-tag story-tag--a">🍌 banana</div>
+            <div class="story-tag story-tag--b">🍯 toffee</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section seo-section">
-      <div class="container seo-layout reveal">
-        <h2>Торты на заказ в Астане — кондитерская Banoffee</h2>
-        <div class="seo-text">
-          <p>Banoffee — кондитерская в Астане с двумя филиалами: улица Санжара Асфендиярова, 8 (район Нура) и проспект Улы Дала, 33. Торты на заказ и фототорты, бенто-торты, синнабоны, десерт моти, меренговые рулеты, конфеты и шоколад ручной работы, сеты и кейтеринг.</p>
-          <p>Кофе с собой, доставка по Астане. Оплата картой, наличными, переводом или по QR. Филиал на Асфендиярова работает ежедневно с 9:00 до 24:00. Заказ торта в WhatsApp: +7 702 973 48 91.</p>
+    <!-- MENU (horizontal) -->
+    <section id="menu" class="menu" aria-labelledby="menu-title">
+      <div class="menu-pin">
+        <div class="container menu-head">
+          <div><span class="kicker">Витрина</span><h2 id="menu-title" data-split>Сладкое <em>к любому</em> поводу</h2></div>
+          <div class="menu-side"><p>От синнабона к утреннему кофе до торта на юбилей. Листайте витрину →</p><div class="menu-progress" aria-hidden="true"><span></span></div></div>
+        </div>
+        <div class="menu-track" tabindex="0" aria-label="Витрина десертов, листается горизонтально">
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">01</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1659271940584-25589f320198?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Розовый торт с живыми цветами" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Торты на заказ</h3><p>По вашему дизайну и вкусу — на день рождения, свадьбу, выпускной.</p><span class="tag">под заказ</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">02</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1559553156-2e97137af16f?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Праздничный шоколадный торт с ягодами и бенгальским огнём" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Фототорты</h3><p>Торт с фотографией или картинкой — пришлите изображение в WhatsApp.</p><span class="tag">под заказ</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">03</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1659679120544-1a968f3003f6?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Бенто-торт в коробочке со свечой" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Бенто-торты</h3><p>Мини-торт в коробочке — подарок, который помещается в руках.</p><span class="tag">подарок</span></div></article>
+          <article class="dish dish--hit" data-cursor="Хочу"><span class="dish-num">04</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1645995575875-ea6511c9d127?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Синнабоны, политые сливочной глазурью" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Синнабоны</h3><p>Мягкие булочки с корицей и сливочной глазурью. Хит наших гостей.</p><span class="tag tag--price">700 ₸</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">05</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1706350091276-ba994c35cd99?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Десерт моти на тарелке" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Моти</h3><p>Японский десерт: нежное рисовое тесто и кремовая начинка.</p><span class="tag">в витрине</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">06</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1686990729110-01e7b922418c?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Меренговый рулет с ягодами" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Меренговые рулеты</h3><p>Хрустящее безе снаружи, воздушный крем и ягоды внутри.</p><span class="tag">в витрине</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">07</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Коробка шоколадных конфет ручной работы" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Конфеты ручной работы</h3><p>Шоколад и конфеты ручной работы — в подарок или к чаю.</p><span class="tag">подарок</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">08</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1765134671689-b1f1e4fa13d9?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Витрина с мини-десертами" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Сеты и кейтеринг</h3><p>Наборы десертов на праздник, в офис или на мероприятие.</p><span class="tag">под заказ</span></div></article>
+          <article class="dish" data-cursor="Хочу"><span class="dish-num">09</span><div class="dish-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&amp;fit=crop&amp;w=640&amp;h=800&amp;q=70" alt="Два стакана кофе с латте-артом" width="640" height="800" loading="lazy"></div><div class="dish-body"><h3>Кофе с собой</h3><p>Кофе к десерту — на Асфендиярова каждый день до полуночи.</p><span class="tag">до 24:00</span></div></article>
+          <article class="dish dish--cta"><span class="dish-num">10</span><div class="dish-cta-inner"><svg class="i"><use href="#i-sparkles"/></svg><h3>Не нашли нужное?</h3><p>Расскажите про ваш повод — придумаем десерт под него.</p><a class="btn btn-light magnetic" href="#order">Собрать заказ <svg class="i"><use href="#i-arrow-right"/></svg></a></div></article>
         </div>
       </div>
     </section>
 
-    <section class="section faq-section">
-      <div class="container faq-layout">
-        <div class="faq-intro reveal"><span class="kicker">Вопросы</span><h2>Частые вопросы</h2><div class="faq-photo"><img src="https://images.unsplash.com/photo-1559553156-2e97137af16f?auto=format&amp;fit=crop&amp;w=800&amp;h=560&amp;q=70" alt="Шоколадный торт с ягодами" width="800" height="560" loading="lazy"></div></div>
-        <div class="faq-list reveal">
-          <details><summary>Как заказать торт?<svg class="i"><use href="#i-chevron-down"/></svg></summary><p>Напишите в WhatsApp: дату, количество гостей и пожелания по дизайну — можно прислать фото-референс. Делаем торты на заказ, фототорты и бенто-торты.</p></details>
-          <details><summary>Есть ли доставка?<svg class="i"><use href="#i-chevron-down"/></svg></summary><p>Да, доставка есть — условия уточняйте в WhatsApp.</p></details>
-          <details><summary>Сколько стоят синнабоны?<svg class="i"><use href="#i-chevron-down"/></svg></summary><p>Сейчас синнабон — 700 ₸.</p></details>
-          <details><summary>Как оплатить?<svg class="i"><use href="#i-chevron-down"/></svg></summary><p>Картой, наличными, переводом с карты или по QR-коду.</p></details>
-          <details><summary>Где вы находитесь?<svg class="i"><use href="#i-chevron-down"/></svg></summary><p>Два филиала: улица Санжара Асфендиярова, 8 (район Нура) — ежедневно 09:00–24:00, и проспект Улы Дала, 33 — ежедневно 10:00–21:00.</p></details>
+    <!-- CINNABON SPOTLIGHT -->
+    <section id="cinnabon" class="cinna" aria-labelledby="cinna-title">
+      <svg class="drip" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0h1440v34c-26 0-30 18-34 40-4 22-26 22-30 0-5-26-14-40-44-40-38 0-40 16-62 16-26 0-28-16-60-16-28 0-30 52-36 70-5 16-28 16-32 0-6-24-6-70-44-70-34 0-46 22-80 22s-40-22-74-22c-30 0-34 30-38 46-4 15-26 15-30 0-4-18-8-46-42-46-36 0-46 14-76 14-26 0-34-14-62-14-34 0-36 66-44 84-6 14-28 14-34 0-6-18-4-84-48-84-32 0-42 18-74 18-30 0-40-18-72-18-28 0-32 26-36 40-4 14-24 14-28 0-4-16-10-40-40-40-34 0-38 24-68 24-26 0-34-24-62-24-34 0-36 44-42 60-6 16-28 16-32 0-6-22-10-60-46-60-28 0-32 10-50 10-16 0-22-10-36-10Z"/></svg>
+      <div class="container cinna-grid">
+        <div class="cinna-media">
+          <div class="cinna-img" data-cursor="700 ₸"><img data-parallax src="https://images.unsplash.com/photo-1645995575875-ea6511c9d127?auto=format&amp;fit=crop&amp;w=900&amp;h=1150&amp;q=72" alt="Синнабоны с корицей, которые поливают глазурью" width="900" height="1150" loading="lazy"></div>
+          <div class="cinna-price"><b>700</b><span>₸</span></div>
+        </div>
+        <div class="cinna-copy">
+          <span class="kicker kicker--light">Хит гостей</span>
+          <h2 id="cinna-title" data-split>Синнабон, ради которого <em>возвращаются</em></h2>
+          <p class="rv">Мягкое тесто, корица и сливочная глазурь. В отзывах о Banoffee синнабоны упоминают чаще всего.</p>
+          <ul class="cinna-quotes stg">
+            <li class="rv"><blockquote>«Лучше синнабонов просто нету, а кофе — это фейерверк вкусовых рецепторов»</blockquote><cite>Гость · 2ГИС</cite></li>
+            <li class="rv"><blockquote>«Самые вкусные синнабоны, которые я когда-либо пробовала 😍»</blockquote><cite>Амина · 2ГИС</cite></li>
+            <li class="rv"><blockquote>«Очень уютная кондитерская, а синнабоны просто безумно вкусные! 🤍»</blockquote><cite>Тамина А. · 2ГИС</cite></li>
+          </ul>
+          <div class="rv"><a class="btn btn-light btn-lg magnetic" href="https://wa.me/77029734891?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%81%D0%B8%D0%BD%D0%BD%D0%B0%D0%B1%D0%BE%D0%BD%D1%8B" target="_blank" rel="noopener">Заказать синнабоны <svg class="i"><use href="#i-arrow-right"/></svg></a></div>
         </div>
       </div>
     </section>
 
-    <section id="contacts" class="contacts-section">
-      <div class="container contacts-layout">
-        <div class="contacts-info reveal">
-          <span class="kicker">Контакты</span><h2>Закажите <em>сладкое</em></h2>
-          <div class="contact-row"><svg class="i"><use href="#i-map-pin"/></svg><div><strong>Адреса</strong><p>Ул. Санжара Асфендиярова, 8 (Нура)<br>Пр. Улы Дала, 33</p></div></div>
-          <div class="contact-row"><svg class="i"><use href="#i-phone"/></svg><div><strong>WhatsApp</strong><p><a href="https://wa.me/77029734891" target="_blank" rel="noopener">+7 702 973 48 91</a> · <a href="https://wa.me/77754742818" target="_blank" rel="noopener">+7 775 474 28 18</a></p></div></div>
-          <div class="contact-row"><svg class="i"><use href="#i-clock"/></svg><div><strong>Режим работы</strong><p>Асфендиярова: ежедневно 09:00–24:00<br>Улы Дала: ежедневно 10:00–21:00</p></div></div>
-          <div class="contact-row"><svg class="i"><use href="#i-instagram"/></svg><div><strong>Instagram</strong><p><a href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener">@banoffee_ast</a></p></div></div>
-          <div class="contact-buttons"><a class="btn btn-plum" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20торт%20в%20Banoffee" target="_blank" rel="noopener">Заказать торт</a><a class="btn btn-ghost" href="tel:+77029734891"><svg class="i"><use href="#i-phone"/></svg> Позвонить</a></div>
+    <!-- ORDER BUILDER -->
+    <section id="order" class="order" aria-labelledby="order-title">
+      <div class="container">
+        <div class="section-head center"><span class="kicker">Заказ торта</span><h2 id="order-title" data-split>Соберите заказ <em>за 30 секунд</em></h2><p class="rv">Выберите, что нужно, — мы соберём сообщение, и оно откроется в WhatsApp. Останется нажать «Отправить».</p></div>
+        <div class="order-grid">
+          <ol class="steps">
+            <li class="rv"><span class="step-n">1</span><div><h3>Выберите десерт и дату</h3><p>Торт, фототорт, бенто или сет — и день праздника.</p></div></li>
+            <li class="rv"><span class="step-n">2</span><div><h3>Расскажите о пожеланиях</h3><p>Вкус, цвет, надпись. Референс можно прислать фото в чате.</p></div></li>
+            <li class="rv"><span class="step-n">3</span><div><h3>Подтвердим детали в WhatsApp</h3><p>Обсудим дизайн, стоимость и время — и закрепим заказ за вами.</p></div></li>
+            <li class="rv"><span class="step-n">4</span><div><h3>Заберите или закажите доставку</h3><p>В одном из филиалов или с доставкой по Астане.</p></div></li>
+            <span class="steps-line" aria-hidden="true"><i></i></span>
+          </ol>
+
+          <form class="builder rv" id="builder" novalidate>
+            <fieldset class="field">
+              <legend>Что заказываем?</legend>
+              <div class="chips">
+                <label><input type="radio" name="what" value="Торт на заказ" checked><span>Торт на заказ</span></label>
+                <label><input type="radio" name="what" value="Фототорт"><span>Фототорт</span></label>
+                <label><input type="radio" name="what" value="Бенто-торт"><span>Бенто-торт</span></label>
+                <label><input type="radio" name="what" value="Сет десертов"><span>Сет десертов</span></label>
+                <label><input type="radio" name="what" value="Синнабоны"><span>Синнабоны</span></label>
+              </div>
+            </fieldset>
+            <div class="field-row">
+              <label class="field"><span class="label"><svg class="i"><use href="#i-calendar"/></svg> Дата</span><input type="date" name="date" id="b-date"></label>
+              <label class="field"><span class="label"><svg class="i"><use href="#i-map-pin"/></svg> Где забрать</span>
+                <select name="branch"><option>Асфендиярова, 8</option><option>Улы Дала, 33</option><option>Доставка по Астане</option></select></label>
+            </div>
+            <label class="field"><span class="label"><svg class="i"><use href="#i-users"/></svg> На сколько человек: <output id="b-guests-out">10</output></span><input type="range" name="guests" id="b-guests" min="1" max="60" value="10"></label>
+            <label class="field"><span class="label"><svg class="i"><use href="#i-heart"/></svg> Пожелания</span><textarea name="wish" rows="2" placeholder="Вкус, цвет, надпись — референс пришлю фото"></textarea></label>
+            <div class="bubble" aria-live="polite"><span class="bubble-head"><svg class="i"><use href="#i-chat"/></svg> Ваше сообщение</span><p id="b-preview"></p></div>
+            <a class="btn btn-plum btn-lg btn-block magnetic" id="b-send" href="https://wa.me/77029734891" target="_blank" rel="noopener">Отправить в WhatsApp <svg class="i"><use href="#i-send"/></svg></a>
+            <p class="builder-note">Стоимость и сроки подтвердим в чате. Номер: +7 702 973 48 91</p>
+          </form>
         </div>
-        <div class="map-wrap reveal"><iframe title="Карта — Banoffee, улица Санжара Асфендиярова, 8" src="https://www.google.com/maps?q=51.134089,71.381541&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a href="https://2gis.kz/astana/firm/70000001076561967" target="_blank" rel="noopener" class="map-link">Маршрут в 2ГИС <svg class="i"><use href="#i-arrow-right"/></svg></a></div>
+      </div>
+    </section>
+
+    <!-- COFFEE -->
+    <section id="coffee" class="coffee" aria-labelledby="coffee-title">
+      <div class="container coffee-grid">
+        <div class="coffee-media">
+          <div class="coffee-img"><img data-parallax src="https://images.unsplash.com/photo-1757949921983-ab4c911cc3fe?auto=format&amp;fit=crop&amp;w=800&amp;h=1100&amp;q=70" alt="Бариста готовит кофе" width="800" height="1100" loading="lazy"></div>
+          <div class="coffee-cup"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;w=420&amp;h=420&amp;q=70" alt="Капучино с латте-артом" width="420" height="420" loading="lazy"></div>
+        </div>
+        <div class="coffee-copy">
+          <span class="kicker">Кофе с собой</span>
+          <h2 id="coffee-title" data-split>Кофе и десерт — <em>до полуночи</em></h2>
+          <p class="rv">Филиал на Асфендиярова, 8 открыт каждый день с 9 утра до 12 ночи. Заходите за кофе с собой, синнабоном к нему или за десертом к вечернему чаю.</p>
+          <ul class="facts stg">
+            <li class="rv"><svg class="i"><use href="#i-clock"/></svg><div><b>09:00–24:00</b><span>ежедневно, Асфендиярова</span></div></li>
+            <li class="rv"><svg class="i"><use href="#i-parking"/></svg><div><b>100 мест</b><span>бесплатная парковка</span></div></li>
+            <li class="rv"><svg class="i"><use href="#i-bus"/></svg><div><b>600 м</b><span>от остановки «ЖК Miami»</span></div></li>
+            <li class="rv"><svg class="i"><use href="#i-card"/></svg><div><b>Любая оплата</b><span>карта, наличные, перевод, QR</span></div></li>
+          </ul>
+          <blockquote class="coffee-quote rv">«Булочки всегда свежие, мягкие и невероятно вкусные… Всё очень аппетитно, а обслуживание приятное и быстрое.»<cite>Erkewa, отзыв в 2ГИС</cite></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-cols" aria-hidden="true">
+        <div class="g-col" data-speed="-12">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&amp;fit=crop&amp;w=520&amp;h=680&amp;q=65" alt="" width="520" height="680" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1611293388250-580b08c4a145?auto=format&amp;fit=crop&amp;w=520&amp;h=600&amp;q=65" alt="" width="520" height="600" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&amp;fit=crop&amp;w=520&amp;h=700&amp;q=65" alt="" width="520" height="700" loading="lazy">
+        </div>
+        <div class="g-col" data-speed="10">
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&amp;fit=crop&amp;w=520&amp;h=640&amp;q=65" alt="" width="520" height="640" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&amp;fit=crop&amp;w=520&amp;h=700&amp;q=65" alt="" width="520" height="700" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1626803775151-61d756612f97?auto=format&amp;fit=crop&amp;w=520&amp;h=600&amp;q=65" alt="" width="520" height="600" loading="lazy">
+        </div>
+        <div class="g-col" data-speed="-18">
+          <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&amp;fit=crop&amp;w=520&amp;h=620&amp;q=65" alt="" width="520" height="620" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1776267074151-3f15dcf28a80?auto=format&amp;fit=crop&amp;w=520&amp;h=700&amp;q=65" alt="" width="520" height="700" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&amp;fit=crop&amp;w=520&amp;h=640&amp;q=65" alt="" width="520" height="640" loading="lazy">
+        </div>
+      </div>
+      <div class="gallery-center">
+        <div class="gallery-card rv">
+          <span class="kicker">Из отзывов</span>
+          <h2 id="gallery-title">«Красиво — <em>как на фото</em>»</h2>
+          <p>Так гости чаще всего пишут о тортах на заказ.</p>
+          <a class="btn btn-ghost magnetic" href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener"><svg class="i"><use href="#i-instagram"/></svg> @banoffee_ast</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANCHES -->
+    <section id="branches" class="branches" aria-labelledby="branches-title">
+      <div class="container">
+        <div class="section-head"><span class="kicker">Филиалы</span><h2 id="branches-title" data-split>Два адреса <em>в Астане</em></h2></div>
+        <div class="branch-grid stg">
+          <article class="branch rv">
+            <div class="branch-top"><span class="status-pill" data-branch-status data-open="09:00" data-close="24:00"><i></i><b>Ежедневно 09:00–24:00</b></span><span class="branch-rate"><svg class="i fill"><use href="#i-star"/></svg> 4.8 · 722</span></div>
+            <h3>Асфендиярова, 8</h3>
+            <p>Район Нура, 1 этаж. Кофе с собой, витрина десертов, торты на заказ. Бесплатная парковка на 100 мест.</p>
+            <dl><div><dt>Часы</dt><dd>09:00–24:00</dd></div><div><dt>Остановка</dt><dd>ЖК Miami · 600 м</dd></div></dl>
+            <a class="btn btn-plum magnetic" href="https://2gis.kz/astana/firm/70000001076561967" target="_blank" rel="noopener">Маршрут в 2ГИС <svg class="i"><use href="#i-arrow-right"/></svg></a>
+          </article>
+          <article class="branch rv">
+            <div class="branch-top"><span class="status-pill" data-branch-status data-open="10:00" data-close="21:00"><i></i><b>Ежедневно 10:00–21:00</b></span><span class="branch-rate"><svg class="i fill"><use href="#i-star"/></svg> 4.6 · 154</span></div>
+            <h3>Улы Дала, 33</h3>
+            <p>Кофейня и кондитерская на проспекте Улы Дала. Торты на заказ, фототорты, десерты в витрине.</p>
+            <dl><div><dt>Часы</dt><dd>10:00–21:00</dd></div><div><dt>Индекс</dt><dd>Z05X2E2</dd></div></dl>
+            <a class="btn btn-plum magnetic" href="https://2gis.kz/astana/firm/70000001096989484" target="_blank" rel="noopener">Маршрут в 2ГИС <svg class="i"><use href="#i-arrow-right"/></svg></a>
+          </article>
+          <article class="branch branch--dark rv">
+            <div class="branch-top"><span class="status-pill status-pill--static"><i></i><b>По всей Астане</b></span></div>
+            <h3>Доставка</h3>
+            <p>Привезём торт или сет к вашему празднику. Условия и время доставки — в WhatsApp.</p>
+            <dl><div><dt>Оплата</dt><dd>карта, перевод, QR</dd></div><div><dt>Заказ</dt><dd>WhatsApp</dd></div></dl>
+            <a class="btn btn-light magnetic" href="https://wa.me/77029734891?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D1%83%20%D0%B8%D0%B7%20Banoffee" target="_blank" rel="noopener">Заказать доставку <svg class="i"><use href="#i-arrow-right"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="reviews" aria-labelledby="reviews-title">
+      <div class="container reviews-head">
+        <div><span class="kicker">Отзывы</span><h2 id="reviews-title" data-split>Что говорят <em>гости</em></h2></div>
+        <div class="score rv"><b>4.8</b><div><span class="stars" aria-hidden="true"><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg><svg class="i fill"><use href="#i-star"/></svg></span><span>722 оценки · 436 отзывов в 2ГИС</span></div></div>
+      </div>
+      <div class="rev-rows">
+        <div class="rev-row" data-dir="left"><div class="rev-track">
+          <figure class="rev"><blockquote>Очень понравились! 🥰 Булочки всегда свежие, мягкие и невероятно вкусные. Всё очень аппетитно, а обслуживание приятное и быстрое. Не первый раз покупаю! ❤️</blockquote><figcaption><span class="avatar">E</span><span><b>Erkewa</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Спасибо за вкусные десерты и приятное обслуживание! Всё было свежим, красивым и очень вкусным. Обязательно вернусь снова и буду рекомендовать вас друзьям ❤️</blockquote><figcaption><span class="avatar">N</span><span><b>Nazdana</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Все понравилось. Торт вкусный и свежий. И как на фото 😍</blockquote><figcaption><span class="avatar">А</span><span><b>Аяжан К.</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Самые вкусные синнабоны, которые я когда-либо пробовала 😍 Всем советую</blockquote><figcaption><span class="avatar">А</span><span><b>Амина</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Все очень красиво 😍 Было вкусно и сытно 👍🏻</blockquote><figcaption><span class="avatar">Н</span><span><b>Нуржайна М.</b><small>2ГИС</small></span></figcaption></figure>
+        </div></div>
+        <div class="rev-row" data-dir="right"><div class="rev-track">
+          <figure class="rev"><blockquote>Лучше синнабонов просто нету, а кофе — это фейерверк вкусовых рецепторов</blockquote><figcaption><span class="avatar">Г</span><span><b>Гость</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Очень уютная кондитерская, а синнабоны просто безумно вкусные! 🤍</blockquote><figcaption><span class="avatar">Т</span><span><b>Тамина А.</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Как на фото, мне понравилось, спасибо вам ❤️</blockquote><figcaption><span class="avatar">З</span><span><b>Зейнеп</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Вкусно, и цены нормальные. Советую</blockquote><figcaption><span class="avatar">Z</span><span><b>Z.</b><small>2ГИС</small></span></figcaption></figure>
+          <figure class="rev"><blockquote>Классное место.</blockquote><figcaption><span class="avatar">F</span><span><b>Finn S.</b><small>2ГИС</small></span></figcaption></figure>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" aria-labelledby="faq-title">
+      <div class="container faq-grid">
+        <div class="faq-intro"><span class="kicker">Вопросы</span><h2 id="faq-title" data-split>Частые <em>вопросы</em></h2><p class="rv">Не нашли ответ? Напишите в <a href="https://wa.me/77029734891" target="_blank" rel="noopener">WhatsApp</a> — ответим.</p></div>
+        <div class="faq-list stg">
+          <details class="rv"><summary>Как заказать торт?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Соберите заявку в разделе «Заказ торта» или напишите в WhatsApp: дату, количество гостей и пожелания по дизайну — можно прислать фото-референс.</p></div></details>
+          <details class="rv"><summary>Можно сделать торт с фотографией?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Да, делаем фототорты. Пришлите изображение в WhatsApp вместе с датой и пожеланиями.</p></div></details>
+          <details class="rv"><summary>Есть ли доставка?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Да, доставка по Астане есть — условия и время уточняйте в WhatsApp.</p></div></details>
+          <details class="rv"><summary>Сколько стоит синнабон?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Сейчас синнабон — 700 ₸.</p></div></details>
+          <details class="rv"><summary>Как оплатить?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Картой, наличными, переводом с карты или по QR-коду.</p></div></details>
+          <details class="rv"><summary>Где вы находитесь и есть ли парковка?<span class="pm" aria-hidden="true"></span></summary><div class="faq-a"><p>Улица Санжара Асфендиярова, 8 (район Нура) — ежедневно 09:00–24:00, бесплатная парковка на 100 мест. Проспект Улы Дала, 33 — ежедневно 10:00–21:00.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="contacts" aria-labelledby="contacts-title">
+      <div class="container contacts-grid">
+        <div class="contacts-info">
+          <span class="kicker kicker--light">Контакты</span><h2 id="contacts-title" data-split>Закажите <em>сладкое</em></h2>
+          <div class="c-row rv"><svg class="i"><use href="#i-map-pin"/></svg><div><strong>Адреса</strong><p>Ул. Санжара Асфендиярова, 8 (Нура)<br>Пр. Улы Дала, 33</p></div></div>
+          <div class="c-row rv"><svg class="i"><use href="#i-phone"/></svg><div><strong>WhatsApp и телефон</strong><p><a href="https://wa.me/77029734891" target="_blank" rel="noopener">+7 702 973 48 91</a> · <a href="https://wa.me/77754742818" target="_blank" rel="noopener">+7 775 474 28 18</a></p></div></div>
+          <div class="c-row rv"><svg class="i"><use href="#i-clock"/></svg><div><strong>Режим работы</strong><p>Асфендиярова: ежедневно 09:00–24:00<br>Улы Дала: ежедневно 10:00–21:00</p></div></div>
+          <div class="c-row rv"><svg class="i"><use href="#i-instagram"/></svg><div><strong>Instagram</strong><p><a href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener">@banoffee_ast</a></p></div></div>
+          <div class="c-buttons rv"><a class="btn btn-light btn-lg magnetic" href="#order">Заказать торт <svg class="i"><use href="#i-arrow-right"/></svg></a><a class="btn btn-outline-light btn-lg magnetic" href="tel:+77029734891"><svg class="i"><use href="#i-phone"/></svg> Позвонить</a></div>
+        </div>
+        <div class="map-wrap rv"><iframe title="Карта — Banoffee, улица Санжара Асфендиярова, 8" src="https://www.google.com/maps?q=51.134089,71.381541&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a href="https://2gis.kz/astana/firm/70000001076561967" target="_blank" rel="noopener" class="map-link">Маршрут в 2ГИС <svg class="i"><use href="#i-arrow-right"/></svg></a></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer-main">
-      <div><a href="#top" class="brand" aria-label="Banoffee — наверх"><span class="brand-mark logo" aria-hidden="true"><img src="logo.jpg" alt="" width="44" height="44"></span><span class="brand-type"><strong class="bn">Banoffee</strong><small class="bn">DESSERTS &amp; COFFEE</small></span></a><p>Асфендиярова, 8 · Улы Дала, 33</p></div>
-      <div class="footer-links"><strong>Разделы</strong><a href="#services">Десерты</a><a href="#volume">Кофе</a><a href="#prices">Филиалы</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></div>
-      <div class="footer-contact"><strong>Связаться</strong><a href="https://wa.me/77029734891" target="_blank" rel="noopener">WhatsApp +7 702 973 48 91</a><a href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener">@banoffee_ast</a></div>
+      <div class="footer-brand"><a href="#top" class="brand" aria-label="Banoffee — наверх"><span class="brand-mark" aria-hidden="true"><svg class="mark"><use href="#logo-mark"/></svg></span><span class="brand-type"><strong>Banoffee</strong><small>DESSERTS &amp; COFFEE</small></span></a><p>Кондитерская и кофе в Астане.<br>Асфендиярова, 8 · Улы Дала, 33</p></div>
+      <div class="footer-col"><strong>Разделы</strong><a href="#menu">Меню</a><a href="#story">История</a><a href="#order">Заказ торта</a><a href="#branches">Филиалы</a><a href="#reviews">Отзывы</a></div>
+      <div class="footer-col"><strong>Связаться</strong><a href="https://wa.me/77029734891" target="_blank" rel="noopener">WhatsApp +7 702 973 48 91</a><a href="tel:+77754742818">+7 775 474 28 18</a><a href="https://www.instagram.com/banoffee_ast/" target="_blank" rel="noopener">@banoffee_ast</a></div>
     </div>
-    <div class="container footer-bottom"><span>© Banoffee</span><span>Астана</span><span>Концепт сайта · не официальный ресурс компании</span></div>
+    <div class="footer-word" aria-hidden="true"><span>B</span><span>a</span><span>n</span><span>o</span><span>f</span><span>f</span><span>e</span><span>e</span></div>
+    <div class="container footer-bottom"><span>© Banoffee, Астана</span><span>Концепт сайта · не официальный ресурс компании · фото иллюстративные</span><a href="#top" class="to-top">Наверх ↑</a></div>
   </footer>
 
-  <div class="mobile-bottom-bar"><a class="btn btn-plum" href="https://wa.me/77029734891?text=Здравствуйте!%20Хочу%20заказать%20торт%20в%20Banoffee" target="_blank" rel="noopener">Заказать торт</a><a class="btn btn-ghost" href="tel:+77029734891"><svg class="i"><use href="#i-phone"/></svg> Позвонить</a></div>
+  <div class="mobile-bar"><a class="btn btn-plum" href="#order">Заказать торт</a><a class="btn btn-ghost" href="tel:+77029734891"><svg class="i"><use href="#i-phone"/></svg> Позвонить</a></div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
