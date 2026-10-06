@@ -125,7 +125,8 @@
   // Scroll reveal: checked against the viewport on every scroll frame, so a fast jump (anchor link,
   // fling) never leaves skipped elements hidden above the fold.
   $$('.stg').forEach((g) => [...g.children].forEach((c, i) => c.style.setProperty('--d', `${i * 0.09}s`)));
-  let pending = $$('.rv, [data-split]:not(.hero-title), .footer-word');
+  $$('.dish-img').forEach((d, i) => d.style.setProperty('--d', `${Math.min(i, 4) * 0.1}s`));
+  let pending = $$('.rv, .rv-clip, [data-split]:not(.hero-title), .footer-word');
   const checkReveals = () => {
     if (!pending.length) return;
     const line = innerHeight * 0.92;
@@ -256,7 +257,8 @@
     const track = $('.menu-track'), bar = $('.menu-progress');
     if (!track || !bar) return;
     track.addEventListener('scroll', () => {
-      if ($('.menu').classList.contains('is-h')) return;
+      const m = $('.menu');
+      if (m.classList.contains('is-h') || m.classList.contains('is-hm')) return;
       const max = track.scrollWidth - track.clientWidth;
       bar.style.setProperty('--mp', Math.max(0.08, max > 0 ? track.scrollLeft / max : 0).toFixed(3));
     }, { passive: true });
@@ -267,6 +269,8 @@
     if (!motion || !hasGsap) return;
     const { gsap, ScrollTrigger } = window;
     gsap.registerPlugin(ScrollTrigger);
+    // phones: don't re-measure when the address bar slides in/out (layout uses svh, so nothing moves)
+    ScrollTrigger.config({ ignoreMobileResize: true });
     const mm = gsap.matchMedia();
 
     // Story: "Banana + Toffee" folds into "Banoffee", the paragraph lights up word by word
@@ -276,39 +280,73 @@
       const word = $('.story-word'), xs = $$('.x', word), ks = $$('.k', word);
       const words = splitWords($('.story-text'), 'wd');
       const finalScale = () => Math.min(2, (word.parentElement.clientWidth * 0.94) / ks.reduce((s, k) => s + k.offsetWidth, 0));
-      const build = (pin) => {
+      const tags = () => gsap.timeline()
+        .fromTo('.story-tag--a', { x: 90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, 0.25)
+        .fromTo('.story-tag--b', { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, 0.55);
+      const imgIn = () => gsap.fromTo('.story-img', { scale: 0.8, rotate: -7, yPercent: 10 }, { scale: 1, rotate: 0, yPercent: 0, duration: 1.4, ease: 'power2.out' });
+      // mode: 'pin' (desktop, GSAP pin), 'stick' (phones/tablets, CSS sticky hold), 'flow' (short landscape screens)
+      const build = (mode) => {
+        const copy = $('.story-copy'), stick = $('.story-stick');
+        const top = () => Math.max(76, (innerHeight - copy.offsetHeight) / 2);
+        const setTop = () => copy.style.setProperty('--stick-top', `${top()}px`);
+        if (mode === 'stick') { story.classList.add('is-stick'); setTop(); ScrollTrigger.addEventListener('refreshInit', setTop); }
         gsap.set(words, { opacity: 0.15 });
-        const tl = gsap.timeline({ scrollTrigger: pin
-          ? { trigger: story, start: 'top top', end: '+=170%', pin: true, scrub: 1, invalidateOnRefresh: true }
-          : { trigger: story, start: 'top 75%', end: 'center 45%', scrub: 1, invalidateOnRefresh: true } });
+        const st = {
+          pin: { trigger: story, start: 'top top', end: '+=170%', pin: true, scrub: 1, invalidateOnRefresh: true },
+          stick: { trigger: stick, start: () => `top ${top()}px`, end: () => `bottom ${top() + copy.offsetHeight}px`, scrub: 0.6, invalidateOnRefresh: true },
+          flow: { trigger: story, start: 'top 75%', end: 'center 45%', scrub: 1, invalidateOnRefresh: true },
+        }[mode];
+        const tl = gsap.timeline({ scrollTrigger: st });
         tl.fromTo(xs, { maxWidth: (i, el) => `${el.scrollWidth}px`, opacity: 1 }, { maxWidth: 0, opacity: 0, duration: 1, ease: 'power3.inOut', stagger: 0.05 }, 0.15)
           .fromTo(word, { scale: 1 }, { scale: finalScale, duration: 0.7, ease: 'power2.out' }, 0.95)
-          .to(words, { opacity: 1, duration: 0.3, stagger: 0.035, ease: 'none' }, 0.5)
-          .fromTo('.story-img', { scale: 0.8, rotate: -7, yPercent: 10 }, { scale: 1, rotate: 0, yPercent: 0, duration: 1.4, ease: 'power2.out' }, 0)
-          .fromTo('.story-tag--a', { x: 90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, 0.25)
-          .fromTo('.story-tag--b', { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 }, 0.55);
-        return () => gsap.set([...xs, word, ...words], { clearProps: 'all' });
+          .to(words, { opacity: 1, duration: 0.3, stagger: 0.035, ease: 'none' }, 0.5);
+        if (mode === 'stick') {
+          // the photo sits below the held text, so it gets its own entrance
+          const media = { trigger: '.story-media', start: 'top bottom', end: 'center 55%', scrub: 0.6 };
+          gsap.timeline({ scrollTrigger: media }).add(imgIn(), 0).add(tags(), 0);
+        } else tl.add(imgIn(), 0).add(tags(), 0);
+        return () => {
+          story.classList.remove('is-stick');
+          copy.style.removeProperty('--stick-top');
+          ScrollTrigger.removeEventListener('refreshInit', setTop);
+          gsap.set([...xs, word, ...words], { clearProps: 'all' });
+        };
       };
-      mm.add('(min-width: 901px)', () => build(true));
-      mm.add('(max-width: 900px)', () => build(false));
+      mm.add('(min-width: 901px)', () => build('pin'));
+      mm.add('(max-width: 900px) and (min-height: 600px)', () => build('stick'));
+      mm.add('(max-width: 900px) and (max-height: 599px)', () => build('flow'));
     }
 
-    // Menu: vertical scroll drives the shelf sideways on desktop
-    mm.add('(min-width: 901px)', () => {
+    // Menu: vertical scroll drives the shelf sideways. Desktop pins it with GSAP; phones and tablets
+    // hold it with CSS sticky (moved by the browser, so touch scrolling stays native-smooth).
+    const shelf = (mode) => {
       const menu = $('.menu'), track = $('.menu-track'), bar = $('.menu-progress');
       if (!menu) return;
-      menu.classList.add('is-h');
+      const cls = mode === 'pin' ? 'is-h' : 'is-hm';
+      menu.classList.add(cls);
       track.removeAttribute('tabindex');
       const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+      // on phones the shelf travels faster than the finger scrolls, so the hold stays short
+      const hold = () => dist() * (mode === 'stick' ? 0.65 : 1);
+      const setDist = () => menu.style.setProperty('--dist', `${hold()}px`);
+      if (mode === 'stick') { setDist(); ScrollTrigger.addEventListener('refreshInit', setDist); }
       const tween = gsap.to(track, {
         x: () => -dist(), ease: 'none',
-        scrollTrigger: { trigger: menu, start: 'top top', end: () => `+=${dist()}`, pin: true, scrub: 1, invalidateOnRefresh: true,
+        scrollTrigger: { trigger: menu, start: 'top top', end: () => `+=${hold()}`, pin: mode === 'pin', scrub: mode === 'pin' ? 1 : 0.5, invalidateOnRefresh: true,
           onUpdate: (st) => bar.style.setProperty('--mp', Math.max(0.08, st.progress).toFixed(3)) },
       });
       $$('.dish-img img', track).forEach((img) => gsap.fromTo(img, { '--px': '-6%' }, { '--px': '6%', ease: 'none',
         scrollTrigger: { trigger: img.closest('.dish'), containerAnimation: tween, start: 'left right', end: 'right left', scrub: true } }));
-      return () => { menu.classList.remove('is-h'); track.setAttribute('tabindex', '0'); gsap.set(track, { clearProps: 'all' }); };
-    });
+      return () => {
+        menu.classList.remove(cls);
+        menu.style.removeProperty('--dist');
+        ScrollTrigger.removeEventListener('refreshInit', setDist);
+        track.setAttribute('tabindex', '0');
+        gsap.set(track, { clearProps: 'all' });
+      };
+    };
+    mm.add('(min-width: 901px)', () => shelf('pin'));
+    mm.add('(max-width: 900px) and (min-height: 600px)', () => shelf('stick'));
 
     // Hero eases away as you scroll past it
     gsap.to('.hero-visual', { yPercent: 14, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
