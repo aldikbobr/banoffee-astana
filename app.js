@@ -251,6 +251,17 @@
     doc.addEventListener('mouseleave', () => cur.classList.add('is-hidden'));
   });
 
+  // Menu shelf swiped natively (phones, tablets): progress bar follows the swipe
+  safe(() => {
+    const track = $('.menu-track'), bar = $('.menu-progress');
+    if (!track || !bar) return;
+    track.addEventListener('scroll', () => {
+      if ($('.menu').classList.contains('is-h')) return;
+      const max = track.scrollWidth - track.clientWidth;
+      bar.style.setProperty('--mp', Math.max(0.08, max > 0 ? track.scrollLeft / max : 0).toFixed(3));
+    }, { passive: true });
+  });
+
   // Scroll-driven scenes (GSAP)
   safe(() => {
     if (!motion || !hasGsap) return;
@@ -269,7 +280,7 @@
         gsap.set(words, { opacity: 0.15 });
         const tl = gsap.timeline({ scrollTrigger: pin
           ? { trigger: story, start: 'top top', end: '+=170%', pin: true, scrub: 1, invalidateOnRefresh: true }
-          : { trigger: story, start: 'top 75%', end: 'bottom 70%', scrub: 1, invalidateOnRefresh: true } });
+          : { trigger: story, start: 'top 75%', end: 'center 45%', scrub: 1, invalidateOnRefresh: true } });
         tl.fromTo(xs, { maxWidth: (i, el) => `${el.scrollWidth}px`, opacity: 1 }, { maxWidth: 0, opacity: 0, duration: 1, ease: 'power3.inOut', stagger: 0.05 }, 0.15)
           .fromTo(word, { scale: 1 }, { scale: finalScale, duration: 0.7, ease: 'power2.out' }, 0.95)
           .to(words, { opacity: 1, duration: 0.3, stagger: 0.035, ease: 'none' }, 0.5)
